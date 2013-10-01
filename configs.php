@@ -133,6 +133,15 @@ $website['slogan'] = "AquaFlameCMS 1.0, the best of the best!";
 $website['address'] = "http://localhost";
 $website['root'] = "/";
 
+$permission['1'] 	= false; 		// Instant Logout
+$permission['2'] 	= false;		// Skip Queue
+$permission['3'] 	= true;  		// Join normal Battleground
+$permission['4'] 	= true; 		// Join random Battleground
+$permission['5'] 	= true;			// Join Arenas
+$permission['6'] 	= true; 		// Join Dungeon Finder
+$permission['7'] 	= true;			// Allow user to check his own email with .account
+$permission['8'] 	= true;			// Allow .unstuck Command
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Page
