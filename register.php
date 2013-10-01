@@ -163,7 +163,83 @@ _gaq.push(['_trackPageLoadTime']);
                 {
                     $sha_pass_hash= sha1(strtoupper($accountName ) . ":" . strtoupper($accountPass));
                     $register_logon = mysql_query("INSERT INTO account (username,sha_pass_hash,email,last_ip,expansion) VALUES (UPPER('".$accountName."'),  CONCAT('".$sha_pass_hash."'),'".$accountEmail."','".$ip."','".$expansion_wow."')")or die(mysql_error());
-					$register_logon = mysql_query("INSERT INTO rbac_account_permissions (permissionId) VALUES ('6')")OR die(mysql_error());
+			$get_id	= mysql_query("SELECT `id` FROM account WHERE username = '".$accountName."'");
+					if ($get_id)
+					{
+					
+						//Delete Index and Keys
+						$alter_groups_del_key	=	mysql_query("ALTER TABLE `rbac_account_groups` 	DROP INDEX `fk__rbac_account_groups__rbac_groups`, 	DROP FOREIGN KEY `fk__rbac_account_groups__account`,	DROP FOREIGN KEY `fk__rbac_account_groups__rbac_groups`");
+						$alter_roles_del_key	=	mysql_query("ALTER TABLE `rbac_account_roles`	DROP INDEX `fk__rbac_account_roles__rbac_roles`,	DROP FOREIGN KEY `fk__rbac_account_roles__account`,	DROP FOREIGN KEY `fk__rbac_account_roles__rbac_roles`");
+						$alter_pem_del_key 		= 	mysql_query("ALTER TABLE `rbac_account_permissions`	DROP INDEX `fk__rbac_account_roles__rbac_permissions`,	DROP FOREIGN KEY `fk__rbac_account_permissions__account`,	DROP FOREIGN KEY `fk__rbac_account_roles__rbac_permissions`");
+
+						
+						$register_logon = mysql_query("INSERT INTO rbac_account_groups (accountId, groupId, realmId) VALUES ('".$get_id."', '1', '-1')")OR die(mysql_error()); //SET Player Level
+						$register_logon = mysql_query("INSERT INTO rbac_account_roles (accountId, roleId, granted, realmId) VALUES ('".$get_id."', '1', '1', '-1')")OR die(mysql_error()); //SET Player Commands
+						
+						for ($i = 0; $i < count($permission); $i++ ){
+							if ($permission[$i] == true)
+							{
+								if($permission[$i] == $permission['1']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '1', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['2']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '2', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['3']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '3', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['4']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '4', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['5']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '5', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['6']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '6', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['7']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '50', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['8']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '534', '1', '-1')")OR die(mysql_error());
+								}
+								
+							}
+							else{
+							
+								if($permission[$i] == $permission['1']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '1', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['2']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '2', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['3']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '3', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['4']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '4', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['5']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '5', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['6']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '6', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['7']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '50', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['8']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '534', '0', '-1')")OR die(mysql_error());
+								}
+							}
+						}
+						
+						//Insert Index and Keys
+						$alter_groups_ins_key	=	mysql_query("ALTER TABLE `rbac_account_groups`	ADD INDEX `fk__rbac_account_groups__rbac_groups` (`groupId`),	ADD CONSTRAINT `fk__rbac_account_groups__account` FOREIGN KEY (`accountId`) REFERENCES `account` (`id`) ON DELETE CASCADE,	ADD CONSTRAINT `fk__rbac_account_groups__rbac_groups` FOREIGN KEY (`groupId`) REFERENCES `rbac_groups` (`id`) ON DELETE CASCADE");
+						$alter_roles_ins_key	=	mysql_query("ALTER TABLE `rbac_account_roles`	ADD INDEX `fk__rbac_account_roles__rbac_roles` (`roleId`),	ADD CONSTRAINT `fk__rbac_account_roles__account` FOREIGN KEY (`accountId`) REFERENCES `account` (`id`) ON DELETE CASCADE,	ADD CONSTRAINT `fk__rbac_account_roles__rbac_roles` FOREIGN KEY (`roleId`) REFERENCES `rbac_roles` (`id`) ON DELETE CASCADE");
+						$alter_pem_ins_key		=	mysql_query("ALTER TABLE `rbac_account_permissions`	ADD INDEX `fk__rbac_account_roles__rbac_permissions` (`permissionId`),	ADD CONSTRAINT `fk__rbac_account_permissions__account` FOREIGN KEY (`accountId`) REFERENCES `account` (`id`) ON DELETE CASCADE,	ADD CONSTRAINT `fk__rbac_account_roles__rbac_permissions` FOREIGN KEY (`permissionId`) REFERENCES `rbac_permissions` (`id`) ON DELETE CASCADE");
+
+						}
 
                     mysql_select_db($server_adb,$connection_setup)or die(mysql_error());
 					          $accountinfo = mysql_fetch_assoc(mysql_query("SELECT * FROM account WHERE username = UPPER('".$accountName."')"));
