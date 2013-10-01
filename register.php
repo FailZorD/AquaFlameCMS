@@ -179,10 +179,58 @@ _gaq.push(['_trackPageLoadTime']);
 						for ($i = 0; $i < count($permission); $i++ ){
 							if ($permission[$i] == true)
 							{
-								$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '".$i."', '1', '-1')")OR die(mysql_error());
+								if($permission[$i] == $permission['1']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '1', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['2']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '2', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['3']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '3', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['4']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '4', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['5']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '5', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['6']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '6', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['7']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '50', '1', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['8']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '534', '1', '-1')")OR die(mysql_error());
+								}
+								
 							}
 							else{
-								$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '".$i."', '0', '-1')")OR die(mysql_error());
+							
+								if($permission[$i] == $permission['1']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '1', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['2']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '2', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['3']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '3', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['4']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '4', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['5']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '5', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['6']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '6', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['7']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '50', '0', '-1')")OR die(mysql_error());
+								}
+								if($permission[$i] == $permission['8']{
+									$register_logon = mysql_query("INSERT INTO rbac_account_permissions (accountId, permissionId, granted, realmId) VALUES ('".$get_id."', '534', '0', '-1')")OR die(mysql_error());
+								}
 							}
 						}
 						
