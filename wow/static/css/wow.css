@@ -242,7 +242,7 @@ tr:hover .fansite-link,
 #header .user-plate { color: #fff; width: 355px; height: 84px; position: absolute; right: 3px; bottom: 1px; }
 .ie6 #header .user-plate { right:2px }
 
-#header .user-plate .character { position: relative; }
+#header .user-plate .character { position: relative; left: 6px; }
 #header .user-plate .player-name,
 #header .user-plate .guild-name { display: block; text-shadow: 1px 1px 1px black; font-weight: bold; font-size:12px; text-overflow: ellipsis; width: 250px; overflow: hidden; white-space: nowrap;}
 #header .user-plate .context-link { text-shadow: 1px 1px 1px black; font-weight: bold; }
